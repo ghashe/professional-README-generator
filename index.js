@@ -15,7 +15,7 @@ const questions = () => {
         if (userTitleInput) {
           return true;
         } else {
-          console.log("Ops! The title must be entered!");
+          console.log("Ops! Title must be entered!");
           return false;
         }
       },
@@ -26,7 +26,7 @@ const questions = () => {
       type: "input",
       name: "description",
       message: "Give a brief description of the project (Required)",
-      verify: (userDescriptionInput) => {
+      validate: (userDescriptionInput) => {
         if (userDescriptionInput) {
           return true;
         } else {
@@ -43,7 +43,7 @@ const questions = () => {
       type: "input",
       name: "installation",
       message: "What are the steps for installing the project? (Required)",
-      verify: (userInstallationInput) => {
+      validate: (userInstallationInput) => {
         if (userInstallationInput) {
           return true;
         } else {
@@ -60,7 +60,7 @@ const questions = () => {
       type: "input",
       name: "usage",
       message: "Provide instructions for use (Required)",
-      verify: (userUsageInput) => {
+      validate: (userUsageInput) => {
         if (userUsageInput) {
           return true;
         } else {
@@ -84,16 +84,6 @@ const questions = () => {
         "Apache",
         "Common-Development-and Distribution",
       ],
-      verify: (userLicensingInput) => {
-        if (userLicensingInput) {
-          return true;
-        } else {
-          console.log(
-            "Sorry! You must select the license from the list that applies to your project!"
-          );
-          return false;
-        }
-      },
     },
 
     // Contribution Guidelines
@@ -101,7 +91,7 @@ const questions = () => {
       type: "input",
       name: "contribution",
       message: "How can people get involved with this project? (Required)",
-      verify: (userContributionInput) => {
+      validate: (userContributionInput) => {
         if (userContributionInput) {
           return true;
         } else {
@@ -118,7 +108,7 @@ const questions = () => {
       type: "input",
       name: "contribution",
       message: "How can people get involved with this project? (Required)",
-      verify: (userContributionInput) => {
+      validate: (userContributionInput) => {
         if (userContributionInput) {
           return true;
         } else {
@@ -135,7 +125,7 @@ const questions = () => {
       type: "input",
       name: "testing",
       message: "Describe how you test this project (Required)",
-      verify: (userTestingInput) => {
+      validate: (userTestingInput) => {
         if (userTestingInput) {
           return true;
         } else {
@@ -152,7 +142,7 @@ const questions = () => {
       type: "input",
       name: "github",
       message: "Please enter your GitHub username (Required)",
-      verify: (userGithubInput) => {
+      validate: (userGithubInput) => {
         if (userGithubInput) {
           return true;
         } else {
