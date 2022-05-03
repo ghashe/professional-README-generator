@@ -2,6 +2,7 @@
 
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -72,36 +73,19 @@ const questions = [
   // License Options
   {
     type: "checkbox",
-    name: "licensing",
+    name: "license",
     message:
       "From the following list, select the license that applies to your project.(Required)   =>:",
     choices: [
       "None",
-      "MIT License",
-      "GNU AGPLv3",
-      "GNU GPLv3",
-      "GNU LGPLv3",
-      "Apache License 2.0",
-      "Mozilla Public License 2.0",
-      "CDDL-1.0",
+      "MIT", // The MIT License
+      "GNUAGPLv3", // GNU AGPLv3
+      "GNUGPLv3", // GNU GPLv3
+      "GNULGPLv3", // GNU LGPLv3
+      "Apache", // Apache License 2.0
+      "Mozilla", // Mozilla Public License 2.0
+      "CDDL-1.0", // CDDL-1.0
     ],
-  },
-
-  // Contribution Guidelines
-  {
-    type: "input",
-    name: "contribution",
-    message: "How can people get involved with this project? (Required)   =>:",
-    validate: (userContributionInput) => {
-      if (userContributionInput) {
-        return true;
-      } else {
-        console.log(
-          "Sorry! You must provide information on how to participate in the project!"
-        );
-        return false;
-      }
-    },
   },
 
   // Contribution Guidelines
@@ -124,7 +108,7 @@ const questions = [
   // Test
   {
     type: "input",
-    name: "testing",
+    name: "test",
     message: "Describe how you test this project (Required)   =>:",
     validate: (userTestingInput) => {
       if (userTestingInput) {
@@ -164,14 +148,24 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) => {
+    if (err)
+      throw errconsole.log(
+        "Success! The README file has been generated! Go and check it!"
+      );
+  });
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer.prompt(questions).then(function (userInput) {
+    console.log(userInput);
+    writeToFile("README.md", generateMarkdown(userInput));
+  });
+}
 
 // Function call to initialize app
 // init();
 
-questions().then(function (userInput) {
-  console.log(userInput);
-});
+init();
