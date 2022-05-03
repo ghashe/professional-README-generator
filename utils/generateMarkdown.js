@@ -16,8 +16,19 @@ function renderLicenseLink(license) {
   } else return ``;
 }
 
+// Adding a function that returns the image section of README
+// If there is no image, return an empty string
+
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
+function renderImageSection(image) {
+  if (image == "") {
+    return ``;
+  } else
+    return `## Visual
+![alt text](${image})`;
+}
+
 function renderLicenseSection(license) {
   if (license !== "None") {
     return `## License
@@ -35,10 +46,9 @@ ${renderLicenseBadge(data.license)}
 
 ## Table of Content
 - [Installation](#installation)
-- [Usage](#usage):
-
-  ${renderLicenseLink(data.license)}
-
+- [Usage](#usage)
+- [Visual](#visual)
+- [License](#license)
 - [Contributing](#contributing)
 - [Test](#test)
 - [Questions](#questions)
@@ -47,7 +57,10 @@ ${renderLicenseBadge(data.license)}
     ${data.installation}
 ## Usage
     ${data.usage}
-    ${renderLicenseSection(data.license)}
+${renderLicenseSection(data.license)}
+
+${renderImageSection(data.image)}
+
 ## Contributing
     ${data.contribution}
 ## Test

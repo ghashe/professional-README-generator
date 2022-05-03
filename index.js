@@ -70,6 +70,13 @@ const questions = [
     },
   },
 
+  //   Image
+  {
+    type: "input",
+    name: "image",
+    message:
+      "If you would like to include an image, please enter the relative path to the image. =>:",
+  },
   // License Options
   {
     type: "checkbox",
