@@ -55,7 +55,7 @@
 
 ## Usage
 
-![usage](./gif-readme/readmeGif.gif)
+![readmeGif](https://user-images.githubusercontent.com/52675141/166659073-89a580bb-c2a4-46d7-a186-c1ba3b084271.gif)
 
 - As soon as you run _node index.js_, the application uses the inquirer package to ask you a series of questions about your GitHub and your project.
 
